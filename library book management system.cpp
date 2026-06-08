@@ -1,27 +1,44 @@
-#include<iostream>
-#include<cmath>
+#include <iostream>
 using namespace std;
 
-class Circle{
-	private:
-		double radius;
-		
-		public:
-			Circle(double r){
-				radius = r;
-			}
-			double area(){
-				return M_PI * radius * radius;
-			}
-			double circumference(){
-				return 2 * M_PI * radius;
-			}
-};			
-int main(){
-	Circle c(5);
-	
-	cout<<"Area="<<c.area()<<endl;
-	cout<<"circumference="<<c.circumference()<<endl;
-	
-	return 0;
-}		
+class Book
+{
+public:
+    string title, author;
+    int copies;
+
+    void inputDetails()
+    {
+        cout << "Enter book title: ";
+        cin >> title;
+
+        cout << "Enter author: ";
+        cin >> author;
+
+        cout << "Enter number of copies: ";
+        cin >> copies;
+    }
+
+    void borrowBook()
+    {
+        copies = copies - 1;
+    }
+
+    void displayDetails()
+    {
+        cout << "\nBook Title: " << title << endl;
+        cout << "Author: " << author << endl;
+        cout << "Copies Available: " << copies << endl;
+    }
+};
+
+int main()
+{
+    Book b;
+
+    b.inputDetails();
+    b.borrowBook();
+    b.displayDetails();
+
+    return 0;
+}
